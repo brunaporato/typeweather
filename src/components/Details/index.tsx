@@ -7,17 +7,10 @@ import cloudRainLight from '../../assets/svg/cloud_rain_light.svg';
 import thermometerSimpleLight from '../../assets/svg/thermometer_simple_light.svg';
 
 import { WeatherItem } from '../WeatherItem';
-
-export type DetailsDataProps = {
-  feels_like: string
-  probability: string
-  wind_speed: string
-  humidity: string
-  temp_kf: string
-}
+import { WeatherDetailsResponseProps } from '../../services/getWeatherByCity';
 
 interface DetailsProps {
-  data: DetailsDataProps
+  data: WeatherDetailsResponseProps
 }
 
 export function Details({ data }: DetailsProps) {
@@ -53,7 +46,7 @@ export function Details({ data }: DetailsProps) {
         <WeatherItem
           icon={sunDimLight}
           title="Variação da temperatura"
-          value={data.temp_kf}
+          value={data.temp_kf.toString()}
         />
       </div>
     </section>
